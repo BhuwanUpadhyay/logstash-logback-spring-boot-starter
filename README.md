@@ -4,9 +4,9 @@
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.bhuwanupadhyay/logstash-logback-spring-boot-starter/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.bhuwanupadhyay/logstash-logback-spring-boot-starter)
 [![Github Action]()]()
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=bhuwanupadhyay_logstash-logback-spring-boot-starter&metric=alert_status)](https://sonarcloud.io/dashboard?id=bhuwanupadhyay_logstash-logback-spring-boot-starter)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=bhuwanupadhyay_logstash-logback-spring-boot-starter&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=bhuwanupadhyay_logstash-logback-spring-boot-starter)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=bhuwanupadhyay_logstash-logback-spring-boot-starter&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=bhuwanupadhyay_logstash-logback-spring-boot-starter)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=BhuwanUpadhyay_logstash-logback-spring-boot-starter&metric=alert_status)](https://sonarcloud.io/dashboard?id=BhuwanUpadhyay_logstash-logback-spring-boot-starter)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=BhuwanUpadhyay_logstash-logback-spring-boot-starter&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=BhuwanUpadhyay_logstash-logback-spring-boot-starter)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=BhuwanUpadhyay_logstash-logback-spring-boot-starter&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=BhuwanUpadhyay_logstash-logback-spring-boot-starter)
 
 ## Usages
 
@@ -24,7 +24,7 @@ Available on [Maven Central]().
 <dependency>
   <groupId>io.github.bhuwanupadhyay</groupId>
   <artifactId>logstash-logback-spring-boot-starter</artifactId>
-  <version>1.0.0.RELEASE</version>
+  <version>1.0.0</version>
 </dependency>
 ```
 
