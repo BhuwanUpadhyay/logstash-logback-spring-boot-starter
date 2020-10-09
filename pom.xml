@@ -7,7 +7,7 @@
 
   <groupId>io.github.bhuwanupadhyay</groupId>
   <artifactId>logstash-logback-spring-boot-starter</artifactId>
-  <version>1.0.0.RELEASE</version>
+  <version>0.0.0-SNAPSHOT</version>
   <name>logstash-logback-spring-boot-starter</name>
   <description>Library for Logstash Logging in Spring Boot</description>
   <url>https://github.com/BhuwanUpadhyay/logstash-logback-spring-boot-starter</url>
@@ -42,11 +42,11 @@
 
   <distributionManagement>
     <snapshotRepository>
-      <id>maven</id>
+      <id>ossrh</id>
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
     </snapshotRepository>
     <repository>
-      <id>maven</id>
+      <id>ossrh</id>
       <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
   </distributionManagement>
@@ -54,9 +54,11 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <java.version>1.8</java.version>
+    <java.version>8</java.version>
+    <maven.compiler.source>${java.version}</maven.compiler.source>
+    <maven.compiler.target>${java.version}</maven.compiler.target>
 
-    <sonar.projectKey>bhuwanupadhyay_logstash-logback-spring-boot-starter</sonar.projectKey>
+    <sonar.projectKey>BhuwanUpadhyay_logstash-logback-spring-boot-starter</sonar.projectKey>
     <sonar.organization>bhuwanupadhyay</sonar.organization>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
 
@@ -89,24 +91,6 @@
       <version>${logstash-logback-encoder.version}</version>
     </dependency>
   </dependencies>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.1</version>
-        <configuration>
-          <failOnWarning>true</failOnWarning>
-          <showDeprecation>true</showDeprecation>
-          <showWarnings>true</showWarnings>
-          <source>${java.version}</source>
-          <target>${java.version}</target>
-          <verbose>true</verbose>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
 
   <profiles>
     <profile>
