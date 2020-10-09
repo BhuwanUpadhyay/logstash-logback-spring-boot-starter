@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>io.github.bhuwanupadhyay</groupId>
+  <artifactId>logstash-logback-spring-boot-starter</artifactId>
+  <version>1.0.0.RELEASE</version>
+  <name>logstash-logback-spring-boot-starter</name>
+  <description>Library for Logstash Logging in Spring Boot</description>
+  <url>https://github.com/BhuwanUpadhyay/logstash-logback-spring-boot-starter</url>
+
+  <developers>
+    <developer>
+      <name>Bhuwan Prasad Upadhyay</name>
+      <email>bhuwan.upadhyay49@gmail.com</email>
+      <url>https://github.com/BhuwanUpadhyay</url>
+    </developer>
+  </developers>
+
+
+  <licenses>
+    <license>
+      <name>Apache License</name>
+      <url>
+        https://github.com/BhuwanUpadhyay/logstash-logback-spring-boot-starter/blob/main/LICENSE
+      </url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <scm>
+    <connection>scm:git:git://github.com/BhuwanUpadhyay/logstash-logback-spring-boot-starter.git
+    </connection>
+    <developerConnection>
+      scm:git:git@github.com:BhuwanUpadhyay/logstash-logback-spring-boot-starter.git
+    </developerConnection>
+    <url>https://github.com/BhuwanUpadhyay/logstash-logback-spring-boot-starter</url>
+  </scm>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>maven</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>maven</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <java.version>1.8</java.version>
+
+    <sonar.projectKey>bhuwanupadhyay_logstash-logback-spring-boot-starter</sonar.projectKey>
+    <sonar.organization>bhuwanupadhyay</sonar.organization>
+    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+
+    <spring-boot.version>2.3.4.RELEASE</spring-boot.version>
+    <logstash-logback-encoder.version>6.4</logstash-logback-encoder.version>
+    <logback-classic.version>1.2.3</logback-classic.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-autoconfigure</artifactId>
+      <version>${spring-boot.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-configuration-processor</artifactId>
+      <version>${spring-boot.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>${logback-classic.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>net.logstash.logback</groupId>
+      <artifactId>logstash-logback-encoder</artifactId>
+      <version>${logstash-logback-encoder.version}</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <failOnWarning>true</failOnWarning>
+          <showDeprecation>true</showDeprecation>
+          <showWarnings>true</showWarnings>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+          <verbose>true</verbose>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <profiles>
+    <profile>
+      <id>release</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>1.6</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <version>3.2.0</version>
+            <executions>
+              <execution>
+                <id>attach-sources</id>
+                <goals>
+                  <goal>jar-no-fork</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <version>3.2.0</version>
+            <executions>
+              <execution>
+                <id>attach-javadocs</id>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
+</project>
