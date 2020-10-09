@@ -11,6 +11,10 @@ build(){
   $MVN_CMD clean package
 }
 
+sonar(){
+  $MVN_CMD verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+}
+
 deploy_local(){
   $MVN_CMD clean install -DskipTests=true
 }
@@ -69,6 +73,7 @@ EOF
 case $1 in
   "bump") bump_version ;;
   "build") build ;;
+  "sonar") sonar ;;
   "deploy_local"|"local") deploy_local ;;
   "deploy"|"remote") deploy_remote ;;
   "config_maven") config_maven ;;
@@ -79,6 +84,7 @@ case $1 in
 
       Where OPTION is one of the following:
       - build
+      - sonar
       - bump - bumps the version
       - local - deploys generated artifacts locally
       - remote - deploys generated artifacts into Maven Central
