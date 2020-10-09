@@ -29,6 +29,7 @@ Available on [Maven Central]().
 ```
 
 Auto-configuration enable logstash logging automatically, and connected with logstash server url `localhost:5044`.
+
 In case if you have to change logstash server url, override following properties:
 
 ```yaml
