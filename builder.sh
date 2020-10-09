@@ -3,6 +3,8 @@ set -e
 cd $(dirname $0)
 . ./builder.conf
 
+MVN_CMD="./mvnw -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -V"
+
 # FUNCTIONS
 print(){ printf "$@"; }
 println(){ printf "$@\n"; }
