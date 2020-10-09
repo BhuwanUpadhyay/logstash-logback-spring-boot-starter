@@ -1,11 +1,11 @@
 package io.github.bhuwanupadhyay.springboot.logstash.logback;
 
-import ch.qos.logback.classic.Logger;
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.core.net.ssl.KeyStoreFactoryBean;
 import ch.qos.logback.core.net.ssl.SSLConfiguration;
 import net.logstash.logback.appender.LogstashTcpSocketAppender;
 import net.logstash.logback.encoder.LogstashEncoder;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
