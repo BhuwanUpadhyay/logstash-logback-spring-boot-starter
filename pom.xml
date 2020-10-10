@@ -7,7 +7,7 @@
 
   <groupId>io.github.bhuwanupadhyay</groupId>
   <artifactId>logstash-logback-spring-boot-starter</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <name>logstash-logback-spring-boot-starter</name>
   <description>Library for Logstash Logging in Spring Boot</description>
   <url>https://github.com/BhuwanUpadhyay/logstash-logback-spring-boot-starter</url>
@@ -89,6 +89,11 @@
       <groupId>net.logstash.logback</groupId>
       <artifactId>logstash-logback-encoder</artifactId>
       <version>${logstash-logback-encoder.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <version>${spring-boot.version}</version>
     </dependency>
   </dependencies>
 

@@ -43,3 +43,13 @@ To disable logstash logging, override following properties:
 boot.logstash:
   enabled: false
 ```
+
+All configuration properties:
+
+```yaml
+boot.logstash:
+  enabled: true
+  url: elk:4100
+  key-store-location: keystore/trust.pk
+  key-store-password: 12345  
+``` 

@@ -21,36 +21,36 @@ public class SpringLogstashLogbackAutoConfiguration {
   @Value("${spring.application.name:-}")
   private String name;
   private String destination = "localhost:5044";
-  private String trustStoreLocation;
-  private String trustStorePassword;
+  private String keyStoreLocation;
+  private String keyStorePassword;
 
   @Bean
-  @ConditionalOnProperty("boot.logstash.enabled")
+  @ConditionalOnProperty(value = "boot.logstash.enabled", matchIfMissing = true)
   public LogstashTcpSocketAppender logstashAppender() {
     LoggerContext loggerContext = (LoggerContext) LoggerFactory.getILoggerFactory();
-    LogstashTcpSocketAppender logstashTcpSocketAppender = new LogstashTcpSocketAppender();
-    logstashTcpSocketAppender.setName(LOGSTASH_APPENDER_NAME);
-    logstashTcpSocketAppender.setContext(loggerContext);
-    logstashTcpSocketAppender.addDestination(destination);
-    if (trustStoreLocation != null) {
+    LogstashTcpSocketAppender appender = new LogstashTcpSocketAppender();
+    appender.setName(LOGSTASH_APPENDER_NAME);
+    appender.setContext(loggerContext);
+    appender.addDestination(destination);
+    if (keyStoreLocation != null) {
       SSLConfiguration sslConfiguration = new SSLConfiguration();
       KeyStoreFactoryBean factory = new KeyStoreFactoryBean();
-      factory.setLocation(trustStoreLocation);
-      if (trustStorePassword != null) {
-        factory.setPassword(trustStorePassword);
+      factory.setLocation(keyStoreLocation);
+      if (keyStorePassword != null) {
+        factory.setPassword(keyStorePassword);
       }
       sslConfiguration.setTrustStore(factory);
-      logstashTcpSocketAppender.setSsl(sslConfiguration);
+      appender.setSsl(sslConfiguration);
     }
     LogstashEncoder encoder = new LogstashEncoder();
     encoder.setContext(loggerContext);
     encoder.setIncludeContext(true);
     encoder.setCustomFields("{\"applicationName\":\"" + name + "\"}");
     encoder.start();
-    logstashTcpSocketAppender.setEncoder(encoder);
-    logstashTcpSocketAppender.start();
-    loggerContext.getLogger(Logger.ROOT_LOGGER_NAME).addAppender(logstashTcpSocketAppender);
-    return logstashTcpSocketAppender;
+    appender.setEncoder(encoder);
+    appender.start();
+    loggerContext.getLogger(Logger.ROOT_LOGGER_NAME).addAppender(appender);
+    return appender;
   }
 
   public String getDestination() {
@@ -61,20 +61,20 @@ public class SpringLogstashLogbackAutoConfiguration {
     this.destination = destination;
   }
 
-  public String getTrustStoreLocation() {
-    return trustStoreLocation;
+  public String getKeyStoreLocation() {
+    return keyStoreLocation;
   }
 
-  public void setTrustStoreLocation(String trustStoreLocation) {
-    this.trustStoreLocation = trustStoreLocation;
+  public void setKeyStoreLocation(String keyStoreLocation) {
+    this.keyStoreLocation = keyStoreLocation;
   }
 
-  public String getTrustStorePassword() {
-    return trustStorePassword;
+  public String getKeyStorePassword() {
+    return keyStorePassword;
   }
 
-  public void setTrustStorePassword(String trustStorePassword) {
-    this.trustStorePassword = trustStorePassword;
+  public void setKeyStorePassword(String keyStorePassword) {
+    this.keyStorePassword = keyStorePassword;
   }
 
   public String getName() {
