@@ -51,8 +51,11 @@ class AutoConfigurationTest {
     SpringLogstashLogbackAutoConfiguration configuration =
         context.getBean(SpringLogstashLogbackAutoConfiguration.class);
     assertThat(configuration).isNotNull();
-    assertThat(configuration.getDestination()).isEqualTo("elk:8080");
+    assertThat(configuration.getDestination()).isEqualTo("elk:8080,elk2:8081");
+    assertThat(configuration.getCustomFields()).isEqualTo(
+        "{\"appname\":\"hello\", \"env\": \"dev\"}");
     assertThat(configuration.getName()).isEqualTo("hello");
+    assertThat(configuration.getQueueSize()).isEqualTo(500);
     assertThat(configuration.getKeyStoreLocation()).isEqualTo("tmp/trust.pk");
     assertThat(configuration.getKeyStorePassword()).isEqualTo("1234");
   }
@@ -68,8 +71,8 @@ class AutoConfigurationTest {
         context.getBean(SpringLogstashLogbackAutoConfiguration.class);
     assertThat(configuration).isNotNull();
     assertThat(configuration.getDestination()).isEqualTo("elk:8080");
-    assertThat(configuration.getName()).isEqualTo("hello");
     assertThat(configuration.getKeyStoreLocation()).isEqualTo("tmp/trust.pk");
+    assertThat(configuration.getCustomFields()).isEqualTo("{\"app\":\"my-service\"}");
     assertThat(configuration.getKeyStorePassword()).isNull();
   }
 }
