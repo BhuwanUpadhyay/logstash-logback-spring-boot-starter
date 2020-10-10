@@ -1,0 +1,8 @@
+boot:
+  logstash:
+    key-store-location: tmp/trust.pk
+    key-store-password: 1234
+    destination: elk:8080
+spring:
+  application:
+    name: hello

@@ -3,7 +3,7 @@
 
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.bhuwanupadhyay/logstash-logback-spring-boot-starter/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.bhuwanupadhyay/logstash-logback-spring-boot-starter)
-[![Github Action]()]()
+[![Github Action](https://img.shields.io/github/workflow/status/BhuwanUpadhyay/logstash-logback-spring-boot-starter/Build)](https://github.com/BhuwanUpadhyay/logstash-logback-spring-boot-starter/actions?query=workflow%3ABuild)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=BhuwanUpadhyay_logstash-logback-spring-boot-starter&metric=alert_status)](https://sonarcloud.io/dashboard?id=BhuwanUpadhyay_logstash-logback-spring-boot-starter)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=BhuwanUpadhyay_logstash-logback-spring-boot-starter&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=BhuwanUpadhyay_logstash-logback-spring-boot-starter)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=BhuwanUpadhyay_logstash-logback-spring-boot-starter&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=BhuwanUpadhyay_logstash-logback-spring-boot-starter)
@@ -18,13 +18,13 @@ The main feature provided by `logstash-logback-spring-boot-starter`:
 
 ## Getting started          
 
-Available on [Maven Central]().
+Available on [Maven Central](https://mvnrepository.com/artifact/io.github.bhuwanupadhyay/logstash-logback-spring-boot-starter).
 
 ```
 <dependency>
   <groupId>io.github.bhuwanupadhyay</groupId>
   <artifactId>logstash-logback-spring-boot-starter</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
 </dependency>
 ```
 
@@ -43,3 +43,13 @@ To disable logstash logging, override following properties:
 boot.logstash:
   enabled: false
 ```
+
+All configuration properties:
+
+```yaml
+boot.logstash:
+  enabled: true
+  url: elk:4100
+  key-store-location: keystore/trust.pk
+  key-store-password: 12345  
+``` 
