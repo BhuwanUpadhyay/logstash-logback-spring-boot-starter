@@ -35,7 +35,9 @@ bump_version(){
     exit 2
   fi
   
-  POM_FILES=$(find . -name 'pom.xml') && sed -i -e "s/$CURRENT_VERSION/$VERSION/" $POM_FILES
+  POM_FILES=$(find . -name 'pom.xml')
+  sed -i -e "s/$CURRENT_VERSION/$VERSION/" $POM_FILES
+  sed -i -e "s/$CURRENT_VERSION/$VERSION/" README.md
   println "CURRENT_VERSION='$VERSION'" > ./builder.conf
 }
 
