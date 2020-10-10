@@ -1,8 +1,6 @@
 # Logstash Logging in Spring Boot [![Twitter](https://img.shields.io/twitter/follow/IAmVuwan.svg?style=social&logo=twitter&label=Follow%20Me)](https://twitter.com/IAmVuwan)
 
-
-
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.bhuwanupadhyay/logstash-logback-spring-boot-starter/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.bhuwanupadhyay/logstash-logback-spring-boot-starter)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.bhuwanupadhyay/logstash-logback-spring-boot-starter)](https://maven-badges.herokuapp.com/maven-central/io.github.bhuwanupadhyay/logstash-logback-spring-boot-starter)
 [![Github Action](https://img.shields.io/github/workflow/status/BhuwanUpadhyay/logstash-logback-spring-boot-starter/Build)](https://github.com/BhuwanUpadhyay/logstash-logback-spring-boot-starter/actions?query=workflow%3ABuild)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=BhuwanUpadhyay_logstash-logback-spring-boot-starter&metric=alert_status)](https://sonarcloud.io/dashboard?id=BhuwanUpadhyay_logstash-logback-spring-boot-starter)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=BhuwanUpadhyay_logstash-logback-spring-boot-starter&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=BhuwanUpadhyay_logstash-logback-spring-boot-starter)
@@ -18,7 +16,7 @@ The main feature provided by `logstash-logback-spring-boot-starter`:
 
 ## Getting started          
 
-Available on [Maven Central](https://mvnrepository.com/artifact/io.github.bhuwanupadhyay/logstash-logback-spring-boot-starter).
+Available on [Maven Central](https://repo1.maven.org/maven2/io/github/bhuwanupadhyay/logstash-logback-spring-boot-starter/).
 
 ```
 <dependency>
