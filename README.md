@@ -24,7 +24,7 @@ Available on [Maven Central](https://mvnrepository.com/artifact/io.github.bhuwan
 <dependency>
   <groupId>io.github.bhuwanupadhyay</groupId>
   <artifactId>logstash-logback-spring-boot-starter</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
 </dependency>
 ```
 
