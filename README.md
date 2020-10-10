@@ -53,3 +53,5 @@ boot.logstash:
   key-store-location: keystore/trust.pk
   key-store-password: 12345  
 ``` 
+
+Thank you!
