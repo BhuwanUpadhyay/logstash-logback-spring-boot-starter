@@ -18,13 +18,13 @@ The main feature provided by `logstash-logback-spring-boot-starter`:
 
 ## Getting started          
 
-Available on [Maven Central]().
+Available on [Maven Central](https://mvnrepository.com/artifact/io.github.bhuwanupadhyay/logstash-logback-spring-boot-starter).
 
 ```
 <dependency>
   <groupId>io.github.bhuwanupadhyay</groupId>
   <artifactId>logstash-logback-spring-boot-starter</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
 </dependency>
 ```
 
