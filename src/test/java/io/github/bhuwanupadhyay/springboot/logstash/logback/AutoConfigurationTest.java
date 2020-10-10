@@ -43,21 +43,33 @@ class AutoConfigurationTest {
 
   @Test
   void testProperties() {
-    SpringLogstashLogbackAutoConfiguration configuration = null;
-    try {
-      ConfigurableApplicationContext context =
-          new SpringApplicationBuilder()
-              .profiles("prop")
-              .sources(PropertiesApp.class)
-              .run();
-      configuration = context.getBean(SpringLogstashLogbackAutoConfiguration.class);
-    } catch (Exception ignored) {
-    } finally {
-      assertThat(configuration).isNotNull();
-      assertThat(configuration.getDestination()).isEqualTo("elk:8080");
-      assertThat(configuration.getName()).isEqualTo("hello");
-      assertThat(configuration.getKeyStoreLocation()).isEqualTo("tmp/trust.pk");
-      assertThat(configuration.getKeyStorePassword()).isEqualTo("1234");
-    }
+    ConfigurableApplicationContext context =
+        new SpringApplicationBuilder()
+            .profiles("prop")
+            .sources(PropertiesApp.class)
+            .run();
+    SpringLogstashLogbackAutoConfiguration configuration =
+        context.getBean(SpringLogstashLogbackAutoConfiguration.class);
+    assertThat(configuration).isNotNull();
+    assertThat(configuration.getDestination()).isEqualTo("elk:8080");
+    assertThat(configuration.getName()).isEqualTo("hello");
+    assertThat(configuration.getKeyStoreLocation()).isEqualTo("tmp/trust.pk");
+    assertThat(configuration.getKeyStorePassword()).isEqualTo("1234");
+  }
+
+  @Test
+  void testPropertiesKeyStorePasswordIsNull() {
+    ConfigurableApplicationContext context =
+        new SpringApplicationBuilder()
+            .profiles("prop2")
+            .sources(PropertiesApp.class)
+            .run();
+    SpringLogstashLogbackAutoConfiguration configuration =
+        context.getBean(SpringLogstashLogbackAutoConfiguration.class);
+    assertThat(configuration).isNotNull();
+    assertThat(configuration.getDestination()).isEqualTo("elk:8080");
+    assertThat(configuration.getName()).isEqualTo("hello");
+    assertThat(configuration.getKeyStoreLocation()).isEqualTo("tmp/trust.pk");
+    assertThat(configuration.getKeyStorePassword()).isNull();
   }
 }
