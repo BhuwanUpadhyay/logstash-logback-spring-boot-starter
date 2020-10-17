@@ -65,6 +65,6 @@ boot:
 
 ## Demo
 
-[Greeting Service](demo/README.md)
+[Greeting Service](demo)
 
 Thank you!
