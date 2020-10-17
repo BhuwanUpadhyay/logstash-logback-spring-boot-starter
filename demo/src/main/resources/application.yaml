@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: greeting-service
+boot:
+  logstash:
+    destination: localhost:5044
+    custom-fields: |-
+      {"appname":"${spring.application.name}", "env": "${spring.profiles.active}"}
+    queue-size: 512

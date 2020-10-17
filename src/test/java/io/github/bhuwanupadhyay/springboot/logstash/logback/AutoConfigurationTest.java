@@ -72,7 +72,7 @@ class AutoConfigurationTest {
     assertThat(configuration).isNotNull();
     assertThat(configuration.getDestination()).isEqualTo("elk:8080");
     assertThat(configuration.getKeyStoreLocation()).isEqualTo("tmp/trust.pk");
-    assertThat(configuration.getCustomFields()).isEqualTo("{\"app\":\"my-service\"}");
+    assertThat(configuration.getCustomFields()).isEqualTo("{\"appname\":\"my-service\"}");
     assertThat(configuration.getKeyStorePassword()).isNull();
   }
 }

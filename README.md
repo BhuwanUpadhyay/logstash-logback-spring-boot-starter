@@ -22,7 +22,7 @@ Available on [Maven Central](https://repo1.maven.org/maven2/io/github/bhuwanupad
 <dependency>
   <groupId>io.github.bhuwanupadhyay</groupId>
   <artifactId>logstash-logback-spring-boot-starter</artifactId>
-  <version>1.0.2</version>
+  <version>1.0.3</version>
 </dependency>
 ```
 
@@ -31,25 +31,40 @@ Auto-configuration enable logstash logging automatically, and connected with log
 In case if you have to change logstash server url, override following properties:
 
 ```yaml
-boot.logstash:
-  url: elk:4100
+boot:
+  logstash:
+    destination: localhost:5044
+```
+
+By default custom fields are:
+```json
+{ "appname" : "<spring.application.name>" }
 ```
 
 To disable logstash logging, override following properties:
 
 ```yaml
-boot.logstash:
-  enabled: false
+boot:
+  logstash:
+    enabled: false
 ```
 
 All configuration properties:
 
 ```yaml
-boot.logstash:
-  enabled: true
-  url: elk:4100
-  key-store-location: keystore/trust.pk
-  key-store-password: 12345  
+boot:
+  logstash:
+    destination: localhost:5044
+    enabled: true
+    key-store-location: keystore/trust.pk
+    key-store-password: 12345  
+    custom-fields: |-
+      {"appname":"${spring.application.name}", "env": "${spring.profiles.active}"}
+    queue-size: 512
 ``` 
+
+## Demo Example
+
+[Greeting Service](demo/README.md)
 
 Thank you!

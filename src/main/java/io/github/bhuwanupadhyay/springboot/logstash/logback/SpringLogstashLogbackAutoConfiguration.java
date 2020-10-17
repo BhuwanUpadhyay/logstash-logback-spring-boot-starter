@@ -13,6 +13,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.util.Assert;
 
 @Configuration
 @ConfigurationProperties(prefix = "boot.logstash")
@@ -33,7 +34,8 @@ public class SpringLogstashLogbackAutoConfiguration {
   @ConditionalOnProperty(value = "boot.logstash.enabled", matchIfMissing = true)
   public LogstashTcpSocketAppender logstashAppender() {
     if (customFields == null) {
-      this.customFields = "{\"app\":\"" + name + "\"}";
+      Assert.hasText(name, "property spring.application.name required!");
+      this.customFields = "{\"appname\":\"" + name + "\"}";
     }
     log.info("Initializing Logstash...");
     LoggerContext context = (LoggerContext) LoggerFactory.getILoggerFactory();
