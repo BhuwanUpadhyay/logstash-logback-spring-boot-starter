@@ -31,7 +31,7 @@ input {
 output {
   elasticsearch {
     hosts => ["http://elasticsearch:9200"]
-    index => "example-%{appname}"
+    index => "example-%{appname}-%{env}"
   }
 }
 EOF
@@ -52,7 +52,7 @@ docker run -d --name kibana --net elk -e "ELASTICSEARCH_URL=http://elasticsearch
 
 - Run the service and then check url [http://localhost:9200/_cat/indices](http://localhost:9200/_cat/indices) and look your index:
 ```
-example-greeting-service
+example-greeting-service-dev
 ```
 - Open kibana dashboard [http://localhost:5601](http://localhost:5601/) and create an index:
 ```
