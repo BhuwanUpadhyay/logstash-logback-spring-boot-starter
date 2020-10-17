@@ -47,3 +47,32 @@ docker run -d --name logstash --net elk -p 5044:5044 -v ~/logstash.conf:/usr/sha
 ```shell script
 docker run -d --name kibana --net elk -e "ELASTICSEARCH_URL=http://elasticsearch:9200" -p 5601:5601 kibana:7.9.2
 ```
+
+### Greeting Service
+
+- Run the service and then check url [http://localhost:9200/_cat/indices](http://localhost:9200/_cat/indices) and look your index:
+```
+example-greeting-service
+```
+- Open kibana dashboard [http://localhost:5601](http://localhost:5601/) and create an index:
+```
+example-greeting*
+``` 
+- Run discover and add filter message, then you will see logging:
+```
+10 hits
+Documents
+message
+	Started DemoApplication in 1.251 seconds (JVM running for 1.714)
+	Tomcat started on port(s): 8080 (http) with context path ''
+	Initializing Servlet 'dispatcherServlet'
+	Initializing Spring DispatcherServlet 'dispatcherServlet'
+	Completed initialization in 3 ms
+	Greeting Initialized at 2902820304765
+	Greeting Initialized at 2904734799104
+	Greeting Initialized at 2905670902001
+	Greeting Initialized at 2906859407908
+	Greeting Initialized at 2907493282685
+```
+
+Thank you for reading!
