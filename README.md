@@ -63,7 +63,7 @@ boot:
     queue-size: 512
 ``` 
 
-## Demo Example
+## Demo
 
 [Greeting Service](demo/README.md)
 
