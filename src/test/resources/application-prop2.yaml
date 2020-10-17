@@ -4,4 +4,4 @@ boot:
     destination: elk:8080
 spring:
   application:
-    name: hello
+    name: my-service
